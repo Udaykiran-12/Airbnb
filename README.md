@@ -25,11 +25,7 @@ A full-stack, server-side rendered web application inspired by Airbnb, built usi
 - ❌ 404 and custom error handling
 - 🌐 Responsive UI with clean templating via EJS
 
-## 📸 Screenshots
 
-| Listings Page | Create Listing | Map View |
-|---------------|----------------|----------|
-| ![listings](https://user-images.githubusercontent.com/1234567890/listings.png) | ![create](https://user-images.githubusercontent.com/1234567890/create.png) | ![map](https://user-images.githubusercontent.com/1234567890/map.png) |
 
 ## 🧩 Setup Instructions
 
