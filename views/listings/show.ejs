@@ -1,8 +1,5 @@
 <% layout("/layouts/boilerplate") %>
-<script>
-  let mapToken = "<%= process.env.MAP_TOKEN %>";
-  let coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
-</script>
+
 
 <div class="row mt-1">
   <div class="col-8 offset-3">
@@ -28,6 +25,7 @@
 
   <% if(currUser && currUser._id.equals(listing.owner._id)) {  %>
   <div class="btns">
+
     <a
       href="/listings/<%= listing._id %>/edit"
       class="btn btn-dark col-1 offset-3 bsdk"
@@ -35,7 +33,7 @@
       Edit
     </a>
     <form method="post" action="/listings/<%=listing._id %>?_method=DELETE">
-      <button class="btn btn-dark add-btn offset-5 bsdk">Delete</button>
+      <button class="btn btn-dark add-btn offset-5 bsdk2">Delete</button>
     </form>
     
   </div>
@@ -102,7 +100,7 @@
 
     <div class="row">
       <% for(let review of listing.reviews ) { %>
-      <div class="card col-5 ms-3 mb-3">
+      <div class="card review-card col-5 ms-3 mb-3">
         <div class="card-body">
           <h5 class="card-title"> @<%= review.author.username %></h5>
           <p class="starability-result card-text" data-rating="<%= review.rating %>"</p></p>
@@ -129,13 +127,4 @@
    <% }  %>
    
   </div>
-
-  <div class="col-8 offset-3 mb-3 mt-3">
-    <h2> Where you'll be</h2>
-    <div id="map">
-
-    </div>
-  </div>
 </div>
-
-<script src="/js/map.js"></script>

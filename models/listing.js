@@ -33,22 +33,9 @@ const listingSchema = new Schema({
     },
 
 
-    geometry: {
-        type: {
-          type: String, // Don't do `{ location: { type: String } }`
-          enum: ['Point'], // 'location.type' must be 'Point'
-          required: true,
-        },
-        coordinates: {
-          type: [Number],
-          required: true,
-        },
-      },
+  
 
-    category : {
-        type : String,
-        enum : ["mountains" , "farms" , "cities" , "rooms" , "artics" , "pools" , "camping" , "castles"],
-    },
+ 
 
 });
 

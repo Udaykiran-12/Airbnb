@@ -1,4 +1,3 @@
-
 <% layout("/layouts/boilerplate") %>
 
 
@@ -11,82 +10,7 @@
 
     
 
-    <div id="filters">
-  
-      <a href="/listings">
-      <div class="filter">
-        <div><i class="fa-solid fa-fire fil"></i></div>
-       <p> Trending</p>
-      </div>
-      </a>
-
-      <a href="/listings/rooms">
-      <div class="filter">
-        <div><i class="fa-solid fa-bed fil"></i></div>
-       <p> Rooms</p>
-      </div>
-     </a>
-
-      <a href="/listings/cities">
-      <div class="filter">
-        <div><i class="fa-solid fa-mountain-city fil"></i></div>
-       <p> Iconic Cities</p>
-      </div>
-      </a>
-
- 
-      <a href="/listings/mountains">
-      <div class="filter">
-        <div><i class="fa-solid fa-mountain fil"></i></div>
-       <p> Mountains</p>
-      </div>
-      </a>
-
-      <a href="/listings/castles">
-      <div class="filter">
-        <div><i class="fa-brands fa-fort-awesome fil"></i></div>
-       <p> Castles</p>
-      </div>
-      </a>
-
-      <a href="/listings/pools">
-      <div class="filter">
-        <div><i class="fa-solid fa-person-swimming fil"></i></div>
-       <p> Amazing Pools</p>
-      </div>
-      </a>
-
-      <a href="/listings/camping">
-      <div class="filter">
-        <div><i class="fa-solid fa-campground fil"></i></div>
-       <p> Camping</p>
-      </div>
-      </a>
-
-      <a href="/listings/farms">
-      <div class="filter">
-        <div><i class="fa-solid fa-cow fil"></i></div>
-       <p> Farms</p>
-      </div>
-      </a>
-
-      <a href="/listings/artics">
-      <div class="filter">
-        <div><i class="fa-regular fa-snowflake fil"></i></div>
-       <p> Artic</p>
-      </div>
-     </a>
-
-     <div class="tax-toggle">
-      <div class="form-check-reverse form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault"> Display Total After Taxes </label>
-      </div>
-     </div>
-
-      
-
-    </div>
+    
 
   <div class="row  row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1 ">
     <% for( let listing of allListings ) {  %>
@@ -110,21 +34,3 @@
     
 
     
-    
-<script>
-  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-
-  taxSwitch.addEventListener("click" , ()=>{
-     let taxInfo = document.getElementsByClassName("tax-info");
-
-     for(info of taxInfo ){
-      if(info.style.display != "inline"){
-        info.style.display = "inline";
-
-      }else{
-        info.style.display = "none";
-      }
-     }
-  });
-
-</script>

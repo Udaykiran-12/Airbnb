@@ -1,8 +1,5 @@
 const Listing = require("../models/listing.js");
-const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const mapToken = process.env.MAP_TOKEN;
 
-const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 
 module.exports.index = async (req, res) => {
@@ -20,11 +17,7 @@ module.exports.index = async (req, res) => {
     //   throw new ExpressError(400, "Send Valid Data For Listing");
     // }
 
-    let response = await geocodingClient.forwardGeocode({
-      query: req.body.listing.location,
-      limit: 1
-    }).send();
-
+   
     
   
      let url = req.file.path;
@@ -32,9 +25,6 @@ module.exports.index = async (req, res) => {
      const listing = new Listing(req.body.listing);
      listing.owner = req.user._id;
      listing.image = { url , filename };
-     listing.category = req.body.listing.category;
-
-    listing.geometry = response.body.features[0].geometry;
 
      const list = await listing.save();
      console.log(list);
@@ -69,7 +59,6 @@ module.exports.index = async (req, res) => {
         let url = req.file.path;
         let filename = req.file.filename;
         listing.image = { url , filename };
-        listing.category = req.body.listing.category;
         await listing.save();
 
         }
@@ -108,44 +97,4 @@ module.exports.index = async (req, res) => {
       };
       
 
-      module.exports.mountains = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "mountains"});
-       res.render("listings/filter/mountain.ejs", { allListings });
-      }
-
-
-      module.exports.rooms = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "rooms"});
-       res.render("listings/filter/room.ejs", { allListings });
-      }
-
-      module.exports.cities = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "cities"});
-       res.render("listings/filter/city.ejs", { allListings });
-      }
-
-      module.exports.pools = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "pools"});
-       res.render("listings/filter/pool.ejs", { allListings });
-      }
-
-      module.exports.farms = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "farms"});
-       res.render("listings/filter/farm.ejs", { allListings });
-      }
-
-      module.exports.castles = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "castles"});
-       res.render("listings/filter/castle.ejs", { allListings });
-      }
-
-      module.exports.artics = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "artics"});
-       res.render("listings/filter/artic.ejs", { allListings });
-      }
-  
-      module.exports.camping = async (req ,res )  =>{
-        const allListings = await Listing.find({ category : "camping"});
-       res.render("listings/filter/artic.ejs", { allListings });
-      }
 

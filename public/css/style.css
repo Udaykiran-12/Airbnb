@@ -218,30 +218,49 @@ h2{
     color: #222222;
 }
 
-/* tax switch css */
 
-  .tax-info{
-    display: none;
-  }
 
-  .tax-toggle{
-    border: 1px solid black;
-    border-radius: 1rem;
-    height: 3.5rem;
-    padding: 1rem;
+
+@media (max-width: 768px) {
+  /* Stack buttons vertically */
+  .btns {
     display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     align-items: center;
-    margin-left: 14rem;
+    width: 100%;
+    margin-top: 1rem;
   }
 
+  .btns a,
+  .btns form {
+    width: 50%;
+  }
+
+  .btns button,
+  .btns a.btn {
+    width: 30%;
+  }
+
+  .bsdk2{
+    width: 135px !important;
+    margin-left: 0px !important
+  }
+
+  .bsdk{
+     margin-left: -100px !important
+  }
+
+  
+
+  /* Show one review per row */
+  .review-card {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
 
   
 
 
-/* MAP */
-
-
-#map { 
-  height: 400px;
-  width:80vh ;
-   }
