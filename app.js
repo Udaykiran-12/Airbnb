@@ -47,7 +47,7 @@ main()
 .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(MongoUrl);
+  await mongoose.connect(dbUrl);
 };
 
 
